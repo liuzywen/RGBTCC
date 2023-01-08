@@ -17,9 +17,9 @@ The details are in https://bmvc2022.mpi-inf.mpg.de/0427.pdf
 
 ****
 # Results
-****
+
 ### RGB-T CC
-|Methods|GAME(0)↓| GAME(1)↓ |GAME(2)↓ |GAME(3)↓ | RMSE|
+|Methods|GAME(0)↓| GAME(1)↓ |GAME(2)↓ |GAME(3)↓ | RMSE↓|
 | :---: | :---: | :---: | :---: | :---: | :---: | 
 |CMCRL|15.61| 19.95| 24.69 |32.89| 28.18|
 |TAFNet|12.38 |16.98| 21.86 |30.19| 22.45
