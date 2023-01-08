@@ -15,7 +15,7 @@ The details are in https://bmvc2022.mpi-inf.mpg.de/0427.pdf
 链接：https://pan.baidu.com/s/1RmQEKXC_-nzdQo76tazspg 
 提取码：neqq 
 
-****
+
 # Results
 
 ### RGB-T CC
