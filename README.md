@@ -4,6 +4,8 @@ The paper has been accepted by BMVC 2022.
 
 The details are in https://bmvc2022.mpi-inf.mpg.de/0427.pdf
 
+![main](imgs/main.png)
+
 ## Code
 链接：https://pan.baidu.com/s/1sYlFQXqGiY8ykOpehH_kkQ 
 提取码：jrux 
