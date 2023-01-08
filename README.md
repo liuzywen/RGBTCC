@@ -16,7 +16,7 @@ The details are in https://bmvc2022.mpi-inf.mpg.de/0427.pdf
 提取码：neqq 
 
 
-# Results
+## Results
 
 ### RGB-T CC
 |Methods|GAME(0)↓| GAME(1)↓ |GAME(2)↓ |GAME(3)↓ | RMSE↓|
