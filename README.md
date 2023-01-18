@@ -1,6 +1,6 @@
 # RGB-T Multi-Modal Crowd Counting Based on Transformer
 
-The paper has been accepted by BMVC 2022.
+The paper has been published by BMVC 2022.
 
 The details are in https://bmvc2022.mpi-inf.mpg.de/0427.pdf
 
