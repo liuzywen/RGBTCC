@@ -30,7 +30,9 @@ The details are in https://bmvc2022.mpi-inf.mpg.de/0427.pdf
 
 
 If you have any question, please email  liuzywen@ahu.edu.cn
+
 Please cite:
+
 @inproceedings{liu2022RGBT, 
 
   title={{RGB-T Multi-Modal Crowd Counting Based on Transformer}},
