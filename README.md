@@ -31,13 +31,20 @@ The details are in https://bmvc2022.mpi-inf.mpg.de/0427.pdf
 
 If you have any question, please email  liuzywen@ahu.edu.cn
 Please cite:
-@inproceedings{liu2022RGBT,
+@inproceedings{liu2022RGBT, 
+
   title={{RGB-T Multi-Modal Crowd Counting Based on Transformer}},
+  
   author={Zhengyi Liu and Wei Wu and Yacheng Tan and Guanghui Zhang},
+  
   booktitle={Procedings of British Machine Vision Conference},
+  
   pages={1--14},
+  
   year={2022}
+  
 }
+
 ****
 
 ## Install dependencies
