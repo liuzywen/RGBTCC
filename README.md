@@ -61,7 +61,7 @@ python predataset_RGBT_CC.py
 ```
 
 ## Training
-Edit this file for training BL-based IADM model.
+Edit this file for training our model.
 
 training hyperparameters as:
 ```
