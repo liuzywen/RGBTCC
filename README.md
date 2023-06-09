@@ -28,7 +28,10 @@ The details are in https://bmvc2022.mpi-inf.mpg.de/0427.pdf
 |**Ours**|**10.90** |**14.81** |**19.02** |**26.14** |**18.79**|
 
 Note:
-preprocess_RGBT.py convert.json files into .npy files.
+
+preprocess_RGBT.py convert .json files into .npy files.
+
+
 predataset_RGBT_CC.py is used to change the size of input images.
 
 If you have any question, please email  liuzywen@ahu.edu.cn
