@@ -14,27 +14,27 @@ import random
 '''set your data path'''
 root = 'F:/DataSets/'
 
-rgbt_cc_train = os.path.join(root, 'RGBT-CC-use/train_depth')
-rgbt_cc_test = os.path.join(root, 'RGBT-CC-use/test_depth')
-rgbt_cc_val = os.path.join(root, 'RGBT-CC-use/val_depth')
+rgbt_cc_train = os.path.join(root, 'RGBT-CC-use/train')
+rgbt_cc_test = os.path.join(root, 'RGBT-CC-use/test')
+rgbt_cc_val = os.path.join(root, 'RGBT-CC-use/val')
 
 # 记得与之修改后面的路径
 # path_sets = [rgbt_cc_train]
 path_sets = [rgbt_cc_test]
 # path_sets = [rgbt_cc_val]
 '''for part A'''
-# if not os.path.exists(rgbt_cc_train.replace('train_depth', 'new_train_depth_384')):
-    # os.makedirs(rgbt_cc_train.replace('train_depth', 'new_trian_depth_384'))
+# if not os.path.exists(rgbt_cc_train.replace('train', 'new_train_224')):
+    # os.makedirs(rgbt_cc_train.replace('train', 'new_trian_224'))
 
-if not os.path.exists(rgbt_cc_test.replace('test_depth', 'new_test_depth_384')):
-    os.makedirs(rgbt_cc_test.replace('test_depth', 'new_test_depth_384'))
+if not os.path.exists(rgbt_cc_test.replace('test', 'new_test_224')):
+    os.makedirs(rgbt_cc_test.replace('test', 'new_test_224'))
 # 
-# if not os.path.exists(rgbt_cc_val.replace('val_depth', 'new_val_depth_384')):
-    # os.makedirs(rgbt_cc_val.replace('val_depth', 'new_val_depth_384'))
+# if not os.path.exists(rgbt_cc_val.replace('val', 'new_val_224')):
+    # os.makedirs(rgbt_cc_val.replace('val', 'new_val_224'))
 
 img_paths = []
 for path in path_sets:
-    for img_path in glob.glob(os.path.join(path, '*RGB.png')):
+    for img_path in glob.glob(os.path.join(path, '*RGB.jpg')):
         img_paths.append(img_path)
 
 img_paths.sort()
@@ -45,30 +45,30 @@ for img_path in img_paths:
     # print(img_path)
     Img_data = cv2.imread(img_path)
 
-    # T_data = cv2.imread(img_path.replace('_RGB', '_T'))
+    T_data = cv2.imread(img_path.replace('_RGB', '_T'))
 
-    # Gt_data = np.load(img_path.replace('_RGB.jpg', '_GT.npy'))
+    Gt_data = np.load(img_path.replace('_RGB.jpg', '_GT.npy'))
     # 448和672
     rate = 1
     rate_1 = 1
     rate_2 = 1
     flag = 0
     if Img_data.shape[1] >= Img_data.shape[0]:  # 后面的大
-        rate_1 = 1152.0 / Img_data.shape[1]
-        rate_2 = 768.0 / Img_data.shape[0]
+        rate_1 = 672.0 / Img_data.shape[1]
+        rate_2 = 448.0 / Img_data.shape[0]
         Img_data = cv2.resize(Img_data, (0, 0), fx=rate_1, fy=rate_2)
-        # T_data = cv2.resize(T_data, (0, 0), fx=rate_1, fy=rate_2)
-        # Gt_data[:, 0] = Gt_data[:, 0] * rate_1
-        # Gt_data[:, 1] = Gt_data[:, 1] * rate_2
+        T_data = cv2.resize(T_data, (0, 0), fx=rate_1, fy=rate_2)
+        Gt_data[:, 0] = Gt_data[:, 0] * rate_1
+        Gt_data[:, 1] = Gt_data[:, 1] * rate_2
         print("1111111")
 
     elif Img_data.shape[0] > Img_data.shape[1]:  # 前面的大
-        rate_1 = 1152.0 / Img_data.shape[0]
-        rate_2 = 768.0 / Img_data.shape[1]
+        rate_1 = 672.0 / Img_data.shape[0]
+        rate_2 = 448.0 / Img_data.shape[1]
         Img_data = cv2.resize(Img_data, (0, 0), fx=rate_2, fy=rate_1)
-        # T_data = cv2.resize(T_data, (0, 0), fx=rate_2, fy=rate_1)
-        # Gt_data[:, 0] = Gt_data[:, 0] * rate_2 # 对应的坐标进行扩大映射
-        # Gt_data[:, 1] = Gt_data[:, 1] * rate_1 # 对应的坐标进行扩大映射
+        T_data = cv2.resize(T_data, (0, 0), fx=rate_2, fy=rate_1)
+        Gt_data[:, 0] = Gt_data[:, 0] * rate_2 # 对应的坐标进行扩大映射
+        Gt_data[:, 1] = Gt_data[:, 1] * rate_1 # 对应的坐标进行扩大映射
         print("22222")
 
     # kpoint = np.zeros((Img_data.shape[0], Img_data.shape[1]))
@@ -104,13 +104,13 @@ for img_path in img_paths:
 
                 # cv2.imwrite(save_path, crop_img)
     # else: # 训练才需要位置，验证，测试不需要
-    img_path = img_path.replace('test_depth', 'new_test_depth_384')
+    img_path = img_path.replace('test', 'new_test_224')
     print(img_path)
-    # T_path = img_path.replace('_RGB','_T')
-    # gt_save_path = img_path.replace('_RGB.jpg', '_GT.npy')
+    T_path = img_path.replace('_RGB','_T')
+    gt_save_path = img_path.replace('_RGB.jpg', '_GT.npy')
     cv2.imwrite(img_path, Img_data)
-    # cv2.imwrite(T_path, T_data)
-    # np.save(gt_save_path, Gt_data)
+    cv2.imwrite(T_path, T_data)
+    np.save(gt_save_path, Gt_data)
     # gt_count = np.sum(kpoint)
     # with h5py.File(img_path.replace('.jpg', '.h5').replace('images', 'gt_density_map'), 'w') as hf:
     #     hf['gt_count'] = gt_count
