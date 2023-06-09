@@ -27,7 +27,9 @@ The details are in https://bmvc2022.mpi-inf.mpg.de/0427.pdf
 |DEFNet|11.90 |16.08 |20.19 |27.27 |21.09|
 |**Ours**|**10.90** |**14.81** |**19.02** |**26.14** |**18.79**|
 
-
+Note:
+preprocess_RGBT.py convert.json files into .npy files.
+predataset_RGBT_CC.py is used to change the size of input images.
 
 If you have any question, please email  liuzywen@ahu.edu.cn
 
